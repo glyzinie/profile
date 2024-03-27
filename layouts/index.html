@@ -1,0 +1,19 @@
+{{ define "title" }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ end }}
+
+{{ define "main" }}
+<header>
+	<span class="avatar">
+		<img alt="Avatar" width="122" height="122" src="https://res.cloudinary.com/glyzinie/f_auto,q_auto,w_122/ml7mf0xotzgw85o9vcgt" srcset="https://res.cloudinary.com/glyzinie/f_auto,q_auto,w_122/ml7mf0xotzgw85o9vcgt 1x, https://res.cloudinary.com/glyzinie/f_auto,q_auto,w_244/ml7mf0xotzgw85o9vcgt 2x, https://res.cloudinary.com/glyzinie/f_auto,q_auto,w_366/ml7mf0xotzgw85o9vcgt 3x">
+	</span>
+	<h1>{{ .Site.Params.Author }}</h1>
+	{{ with .Site.Params.Description }}<p>{{ . }}</p>{{ end }}
+</header>
+{{ partial "custom.html" . }}
+<footer>
+	<ul class="icons">
+		{{ range .Site.Params.social }}
+		<li><a rel="me" href="{{ .url }}" class="icon {{ .icon }}">{{ .name }}</a></li>
+		{{ end }}
+	</ul>
+</footer>
+{{ end }}

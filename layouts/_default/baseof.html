@@ -1,0 +1,70 @@
+{{ $fontawesome := "v6.5.2" }}
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-dns-prefetch-control" content="on">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<link rel="preconnect" href="https://res.cloudinary.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preloadd" href="https://res.cloudinary.com/atuki/f_auto,q_auto/phyymwgqjkw5mrb1ozvt">
+	<link rel="preloadd" href="https://res.cloudinary.com/atuki/f_auto,q_auto/ye2wxjnkpyiphr5ivbmb">
+	<link rel="preloadd" href="https://use.fontawesome.com/releases/{{ $fontawesome }}/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preloadd" href="https://use.fontawesome.com/releases/{{ $fontawesome }}/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/{{ $fontawesome }}/css/fontawesome.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/{{ $fontawesome }}/css/solid.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/{{ $fontawesome }}/css/brands.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<style>{{ with resources.Get "main.scss" | toCSS }}{{ .Content | safeCSS }}{{ end }}</style>
+	<noscript><style>{{ with resources.Get "noscript.scss" | toCSS }}{{ .Content | safeCSS }}{{ end }}</style></noscript>
+
+	<title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
+	<meta name="description" content="{{ .Site.Params.Description }}">
+	<link rel="canonical" href="{{ .Permalink }}">
+
+	<link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/72x72/1f98b.png">
+	<link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f98b.svg">
+
+	<meta name="description" content="{{ .Site.Params.Description }}">
+	<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+	<meta property="og:title" content="{{ block "title" . }}{{ end }}{{ .Site.Title }}">
+	<meta property="og:description" content="{{ .Site.Params.Description }}">
+	<meta property="og:url" content="{{ .Permalink }}">
+	<meta property="og:image" content="https://res.cloudinary.com/glyzinie/f_auto,q_auto/ml7mf0xotzgw85o9vcgt">
+	<meta name="twitter:card" content="summary">
+
+	{{ partial "head.html" . }}
+{{ if not .Site.IsServer }}{{ with .Site.GoogleAnalytics }}<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', '{{ . }}');
+</script>{{ end }}{{ end }}
+</head>
+<body class="is-preload">
+<!-- Wrapper -->
+<span id="wrapper">
+
+	<!-- Main -->
+	<section id="main">
+		{{ block "main" . }}{{ end }}
+	</section>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<ul class="copyright">
+			<li>&copy; {{ with .Site.Copyright }}{{ . }}{{ else }}Ress{{ end }}</li>
+		</ul>
+	</footer>
+
+</span>
+<!-- Scripts -->
+<script>"addEventListener"in window&&window.addEventListener("load",function(){document.body.className=document.body.className.replace(/\bis-preload\b/,"")});</script>
+</body>
+</html>

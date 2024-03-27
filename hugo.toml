@@ -1,0 +1,22 @@
+enableRobotsTXT = true
+
+disableKinds = ['taxonomy', 'term']
+copyright = "2023 GLYZINIE.NET"
+
+baseURL = "https://glyzinie.net"
+title = "Wis's Profile"
+#googleAnalytics = "G-JYH2N33ZE1"
+
+[params]
+author = "Wis"
+description = "Freelance Engineer from Tokyo"
+
+[[params.social]]
+name = "GitHub"
+icon = "brands fa-github"
+url = "https://github.com/glyzinie"
+
+[[params.social]]
+name = "Zenn"
+icon = "solid fa-z"
+url = "https://zenn.dev/glyzinie"
