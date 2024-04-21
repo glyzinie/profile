@@ -3,7 +3,9 @@
 {{ define "main" }}
 <header>
 	<span class="avatar">
-		<img alt="Avatar" width="122" height="122" src="https://res.cloudinary.com/glyzinie/f_auto,q_auto,w_122/ml7mf0xotzgw85o9vcgt" srcset="https://res.cloudinary.com/glyzinie/f_auto,q_auto,w_122/ml7mf0xotzgw85o9vcgt 1x, https://res.cloudinary.com/glyzinie/f_auto,q_auto,w_244/ml7mf0xotzgw85o9vcgt 2x, https://res.cloudinary.com/glyzinie/f_auto,q_auto,w_366/ml7mf0xotzgw85o9vcgt 3x">
+		{{ $cloudinary := "z2" }}
+		{{ $avatar := "he1gst3audkgfzwgqbpa" }}
+		<img alt="Avatar" width="122" height="122" src="https://res.cloudinary.com/{{ $cloudinary }}/f_auto,q_auto,w_122/{{ $avatar }}" srcset="https://res.cloudinary.com/{{ $cloudinary }}/f_auto,q_auto,w_122/{{ $avatar }} 1x, https://res.cloudinary.com/{{ $cloudinary }}/f_auto,q_auto,w_244/{{ $avatar }} 2x, https://res.cloudinary.com/{{ $cloudinary }}/f_auto,q_auto,w_366/{{ $avatar }} 3x">
 	</span>
 	<h1>{{ .Site.Params.Author }}</h1>
 	{{ with .Site.Params.Description }}<p>{{ . }}</p>{{ end }}

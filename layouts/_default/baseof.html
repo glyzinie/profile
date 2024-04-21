@@ -1,4 +1,6 @@
-{{ $fontawesome := "v6.5.2" }}
+{{ $fontawesome := "6.5.2" }}
+{{ $twemoji := "15.1.0" }}
+{{ $emoji := "1f408-200d-2b1b" }}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -9,24 +11,22 @@
 	<link rel="preconnect" href="https://res.cloudinary.com">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preloadd" href="https://res.cloudinary.com/atuki/f_auto,q_auto/phyymwgqjkw5mrb1ozvt">
-	<link rel="preloadd" href="https://res.cloudinary.com/atuki/f_auto,q_auto/ye2wxjnkpyiphr5ivbmb">
-	<link rel="preloadd" href="https://use.fontawesome.com/releases/{{ $fontawesome }}/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-	<link rel="preloadd" href="https://use.fontawesome.com/releases/{{ $fontawesome }}/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/{{ $fontawesome }}/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/{{ $fontawesome }}/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/{{ $fontawesome }}/css/fontawesome.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/{{ $fontawesome }}/css/solid.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/{{ $fontawesome }}/css/brands.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-	<style>{{ with resources.Get "main.scss" | toCSS }}{{ .Content | safeCSS }}{{ end }}</style>
-	<noscript><style>{{ with resources.Get "noscript.scss" | toCSS }}{{ .Content | safeCSS }}{{ end }}</style></noscript>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/{{ $fontawesome }}/css/fontawesome.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/{{ $fontawesome }}/css/solid.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/{{ $fontawesome }}/css/brands.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<style>{{ with resources.Get "main.scss" | toCSS | minify }}{{ .Content | safeCSS }}{{ end }}</style>
+	<noscript><style>{{ with resources.Get "noscript.scss" | toCSS | minify }}{{ .Content | safeCSS }}{{ end }}</style></noscript>
 
 	<title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
 	<meta name="description" content="{{ .Site.Params.Description }}">
 	<link rel="canonical" href="{{ .Permalink }}">
 
-	<link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/72x72/1f98b.png">
-	<link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f98b.svg">
+	<link rel="icon" type="image/png" href="https://cdnjs.cloudflare.com/ajax/libs/twemoji/{{ $twemoji }}/72x72/{{ $emoji }}.png">
+	<link rel="icon" type="image/svg+xml" href="https://cdnjs.cloudflare.com/ajax/libs/twemoji/{{ $twemoji }}/svg/{{ $emoji }}.svg">
 
 	<meta name="description" content="{{ .Site.Params.Description }}">
 	<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
@@ -59,12 +59,12 @@
 	<!-- Footer -->
 	<footer id="footer">
 		<ul class="copyright">
-			<li>&copy; {{ with .Site.Copyright }}{{ . }}{{ else }}Ress{{ end }}</li>
+			<li>&copy; {{ with .Site.Copyright }}{{ . }}{{ end }}</li>
 		</ul>
 	</footer>
 
 </span>
 <!-- Scripts -->
-<script>"addEventListener"in window&&window.addEventListener("load",function(){document.body.className=document.body.className.replace(/\bis-preload\b/,"")});</script>
+<script>window.addEventListener('load', () => document.body.classList.remove('is-preload'));</script>
 </body>
 </html>

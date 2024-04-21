@@ -1,15 +1,14 @@
 enableRobotsTXT = true
 
 disableKinds = ['taxonomy', 'term']
-copyright = "2023 GLYZINIE.NET"
+copyright = "2023 Glyzinie"
 
 baseURL = "https://glyzinie.net"
 title = "Wis's Profile"
-#googleAnalytics = "G-JYH2N33ZE1"
 
 [params]
 author = "Wis"
-description = "Freelance Engineer from Tokyo"
+description = "Freelance Engineer"
 
 [[params.social]]
 name = "GitHub"
