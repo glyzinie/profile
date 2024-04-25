@@ -1,6 +1,7 @@
 enableRobotsTXT = true
+theme = "identity"
 
-disableKinds = ['taxonomy', 'term']
+disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
 copyright = "2023 Glyzinie"
 
 baseURL = "https://glyzinie.net"
