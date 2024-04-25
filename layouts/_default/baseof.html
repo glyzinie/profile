@@ -1,6 +1,7 @@
 {{ $fontawesome := "6.5.2" }}
 {{ $twemoji := "15.1.0" }}
-{{ $emoji := "1f408-200d-2b1b" }}
+{{ $cloudinary := default "z2" .Site.Params.Cloudinary }}
+{{ $avatar := default "aynfj6ugkvphnnu0plsj" .Site.Params.Avatar }}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -25,15 +26,17 @@
 	<meta name="description" content="{{ .Site.Params.Description }}">
 	<link rel="canonical" href="{{ .Permalink }}">
 
-	<link rel="icon" type="image/png" href="https://cdnjs.cloudflare.com/ajax/libs/twemoji/{{ $twemoji }}/72x72/{{ $emoji }}.png">
-	<link rel="icon" type="image/svg+xml" href="https://cdnjs.cloudflare.com/ajax/libs/twemoji/{{ $twemoji }}/svg/{{ $emoji }}.svg">
+	{{ with .Site.Params.Emoji }}
+	<link rel="icon" type="image/png" href="https://cdnjs.cloudflare.com/ajax/libs/twemoji/{{ $twemoji }}/72x72/{{ . }}.png">
+	<link rel="icon" type="image/svg+xml" href="https://cdnjs.cloudflare.com/ajax/libs/twemoji/{{ $twemoji }}/svg/{{ . }}.svg">
+	{{ end }}
 
 	<meta name="description" content="{{ .Site.Params.Description }}">
 	<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 	<meta property="og:title" content="{{ block "title" . }}{{ end }}{{ .Site.Title }}">
 	<meta property="og:description" content="{{ .Site.Params.Description }}">
 	<meta property="og:url" content="{{ .Permalink }}">
-	<meta property="og:image" content="https://res.cloudinary.com/glyzinie/f_auto,q_auto/ml7mf0xotzgw85o9vcgt">
+	<meta property="og:image" content="https://res.cloudinary.com/{{ $cloudinary }}/f_auto,q_auto/{{ $avatar }}">
 	<meta name="twitter:card" content="summary">
 
 	{{ partial "head.html" . }}
@@ -57,9 +60,9 @@
 	</section>
 
 	<!-- Footer -->
-	<footer id="footer">
+	<footer>
 		<ul class="copyright">
-			<li>&copy; {{ with .Site.Copyright }}{{ . }}{{ end }}</li>
+			<li>&copy; {{ with .Site.Copyright }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}</li>
 		</ul>
 	</footer>
 

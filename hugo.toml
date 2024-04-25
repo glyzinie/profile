@@ -9,6 +9,8 @@ title = "Wis's Profile"
 [params]
 author = "Wis"
 description = "Freelance Engineer"
+emoji = "1f408-200d-2b1b"
+avatar = "he1gst3audkgfzwgqbpa"
 
 [[params.social]]
 name = "GitHub"

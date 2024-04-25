@@ -23,8 +23,8 @@
 			&.is-preload {
 
 				*, *:before, *:after {
-					@include vendor('animation', 'none !important');
-					@include vendor('transition', 'none !important');
+					animation: none !important;
+					transition: none !important;
 				}
 			}
 
@@ -37,11 +37,11 @@
 	body {
 		height: 100%;
 		background-color: _palette(bg);
-		@include vendor('background-image', (
-			'url("img/overlay.png")',
-			'linear-gradient(60deg, #{transparentize(_palette(accent1), 0.5)} 5%, #{transparentize(_palette(accent2), 0.65)})',
-			'url("img/bg.jpg")'
-		));
+		background-image: (
+			url("img/overlay.png"),
+			linear-gradient(60deg, #{transparentize(_palette(accent1), 0.5)} 5%, #{transparentize(_palette(accent2), 0.65)}),
+			url("img/bg.jpg")
+		);
 		background-repeat:		repeat,			no-repeat,			no-repeat;
 		background-size:		100px 100px,	cover,				cover;
 		background-position:	top left,		center center,		bottom center;
@@ -59,15 +59,15 @@
 			z-index: 1;
 
 			background-color: _palette(bg);
-			@include vendor('background-image', (
-				'url("img/overlay.png")',
-				'linear-gradient(60deg, #{transparentize(_palette(accent1), 0.5)} 5%, #{transparentize(_palette(accent2), 0.65)})'
-			));
+			background-image: (
+				url("img/overlay.png"),
+				linear-gradient(60deg, #{transparentize(_palette(accent1), 0.5)} 5%, #{transparentize(_palette(accent2), 0.65)})
+			);
 			background-repeat:		repeat,			no-repeat;
 			background-size:		100px 100px,	cover;
 			background-position:	top left,		center center;
 
-			@include vendor('transition', 'opacity #{_duration(bg)} ease-out');
+			transition: opacity #{_duration(bg)} ease-out;
 		}
 
 		&.is-preload {

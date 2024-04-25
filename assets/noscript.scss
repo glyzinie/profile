@@ -1,7 +1,6 @@
 @import 'libs/vars';
 @import 'libs/functions';
 @import 'libs/mixins';
-@import 'libs/vendor';
 @import 'libs/breakpoints';
 
 /* Basic */
@@ -15,6 +14,6 @@
 /* Main */
 
 	#main {
-		@include vendor('transform', 'none !important');
+		transform: none !important;
 		opacity: 1 !important;
 	}

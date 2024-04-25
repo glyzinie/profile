@@ -1,12 +1,12 @@
 /* Main */
 
 	#main {
-		@include vendor('transform-origin', '50% 50%');
-		@include vendor('transform', 'rotateX(0deg)');
-		@include vendor('transition', (
-			'opacity #{_duration(main)} ease',
-			'transform #{_duration(main)} ease'
-		));
+		transform-origin: 50% 50%;
+		transform: rotateX(0deg);
+		transition: (
+			opacity #{_duration(main)} ease,
+			transform #{_duration(main)} ease
+		);
 		@include padding(4.5em, 3em);
 		background: _palette(bg);
 		border-radius: _size(border-radius);
@@ -55,7 +55,7 @@
 		}
 
 		body.is-preload & {
-			@include vendor('transform', 'rotateX(15deg)');
+			transform: rotateX(15deg);
 			opacity: 0;
 		}
 	}
