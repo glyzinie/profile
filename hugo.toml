@@ -14,6 +14,11 @@ emoji = "1f408-200d-2b1b"
 avatar = "he1gst3audkgfzwgqbpa"
 
 [[params.social]]
+name = "Twitter"
+icon = "brands fa-x-twitter"
+url = "https://twitter.com/intent/user?user_id=1747430158355845120"
+
+[[params.social]]
 name = "GitHub"
 icon = "brands fa-github"
 url = "https://github.com/glyzinie"
