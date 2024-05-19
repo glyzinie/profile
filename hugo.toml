@@ -16,7 +16,7 @@ avatar = "he1gst3audkgfzwgqbpa"
 [[params.social]]
 name = "Twitter"
 icon = "brands fa-x-twitter"
-url = "https://twitter.com/intent/user?user_id=1747430158355845120"
+url = "https://x.com/intent/user?user_id=1747430158355845120"
 
 [[params.social]]
 name = "GitHub"
